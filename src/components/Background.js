@@ -11,7 +11,6 @@ const Background = () => {
         sx={{
           backgroundImage: `url("../images/javier-miranda-Jn2EaLLYZfY-unsplash.jpg")`,
           backgroundSize: 'cover',
-          height: '100vh',
         }}
       >
         <Navbar />
