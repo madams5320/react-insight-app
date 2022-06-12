@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+//import material ui components
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,7 +14,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Psychology } from '@mui/icons-material';
 
-const pages = ['Continents', 'Countries'];
+const pages = [{id: 1, name: "Continents", link: "/continents"}, {id: 2, name: "Countries", link: "/countries"}];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -81,9 +84,11 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link to={page.link} style={{ textDecoration: 'none' }}>
+                  <MenuItem key={page.id}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -117,12 +122,14 @@ const Navbar = () => {
             }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link to={page.link} style={{ textDecoration: 'none' }}>
+                <Button
+                  key={page.id}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
