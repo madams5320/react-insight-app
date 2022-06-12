@@ -1,12 +1,32 @@
-import React from 'react'
-import Background from '../components/Background'
+import { Box } from '@mui/material';
+import React from 'react';
+
+// import components
+import Intro from '../components/Intro';
+import Navbar from '../components/Navbar';
+
+const color = 'inherit';
+const buttonColor = 'white';
+const menuIcon = 'inherit';
 
 const Home = () => {
   return (
     <>
-        <Background /> 
-    </>
-  )
-}
+      <Box
+        sx={{
+          // background image
+          backgroundImage: `url("../images/javier-miranda-Jn2EaLLYZfY-unsplash.jpg")`,
+          backgroundSize: 'cover',
+        }}
+      >
+        {/* navigation bar */}
+        <Navbar color={color} buttonColor={buttonColor} menuIcon={menuIcon} />
 
-export default Home
+        {/* page description */}
+        <Intro />
+      </Box>
+    </>
+  );
+};
+
+export default Home;
