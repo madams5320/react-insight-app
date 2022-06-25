@@ -21,6 +21,8 @@ const pages = [
 ];
 
 const Navbar = ({ color, buttonColor, menuIcon }) => {
+
+  // useState for menu
   const [open, setOpen] = useState(false);
 
   return (
@@ -65,11 +67,10 @@ const Navbar = ({ color, buttonColor, menuIcon }) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="pages"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={(e) => setOpen(true)}
-              // "default"
               color={menuIcon}
             >
               <MenuIcon />
@@ -128,7 +129,7 @@ const Navbar = ({ color, buttonColor, menuIcon }) => {
             InSight
           </Typography>
 
-          {/* display menu icon - screens medium & bigger */}
+          {/* display pages - screens medium & bigger */}
           <Box
             sx={{
               flexGrow: 1,
