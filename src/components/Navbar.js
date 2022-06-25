@@ -14,9 +14,13 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Psychology } from '@mui/icons-material';
 
-const pages = [{id: 1, name: "Continents", link: "/continents"}, {id: 2, name: "Countries", link: "/countries"}];
+// pages array
+const pages = [
+  { id: 1, name: 'Information', link: '/information' },
+  { id: 2, name: 'About', link: '/about' },
+];
 
-const Navbar = () => {
+const Navbar = ({ color, buttonColor, menuIcon }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -35,25 +39,28 @@ const Navbar = () => {
             sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
+              color: buttonColor === 'white' ? 'white' : 'black',
             }}
           />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 6,
-              display: { xs: 'none', md: 'flex' },
-              // fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            InSight
-          </Typography>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              color={color}
+              sx={{
+                mr: 6,
+                display: { xs: 'none', md: 'flex' },
+                // fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                textDecoration: 'none',
+              }}
+            >
+              InSight
+            </Typography>
+          </Link>
+
           {/* display menu icon - screens extra small & small */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -62,7 +69,8 @@ const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={(e) => setOpen(true)}
-              color="inherit"
+              // "default"
+              color={menuIcon}
             >
               <MenuIcon />
             </IconButton>
@@ -94,12 +102,19 @@ const Navbar = () => {
           </Box>
 
           {/* display logo & name - screens extra small & small */}
-          <Psychology sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Psychology
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              mr: 1,
+              color: buttonColor === 'white' ? 'white' : 'black',
+            }}
+          />
           <Typography
             variant="h5"
             noWrap
             component="a"
             href=""
+            color={color}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -107,12 +122,12 @@ const Navbar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
               textDecoration: 'none',
             }}
           >
             InSight
           </Typography>
+
           {/* display menu icon - screens medium & bigger */}
           <Box
             sx={{
@@ -125,7 +140,11 @@ const Navbar = () => {
               <Link to={page.link} style={{ textDecoration: 'none' }}>
                 <Button
                   key={page.id}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{
+                    my: 2,
+                    color: buttonColor === 'white' ? 'white' : 'black',
+                    display: 'block',
+                  }}
                 >
                   {page.name}
                 </Button>
