@@ -1,11 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import pages
 import Home from './pages/Home';
-import Continents from "./pages/Continents";
-import Countries from "./pages/Countries";
-import Country from "./pages/Country";
+import Information from './pages/Information';
+import About from './pages/About';
 
 function App() {
   return (
@@ -13,11 +12,8 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="continents" element={<Continents />} />
-          <Route path="countries">
-            <Route index element={<Countries />} />
-            <Route path=":countryId" element={<Country />} />
-          </Route>
+          <Route path="information" element={<Information />} />
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>
