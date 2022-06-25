@@ -5,7 +5,8 @@ import React from 'react';
 import Intro from '../components/Intro';
 import Navbar from '../components/Navbar';
 
-const color = 'inherit';
+// props
+const color = 'white';
 const buttonColor = 'white';
 const menuIcon = 'inherit';
 
